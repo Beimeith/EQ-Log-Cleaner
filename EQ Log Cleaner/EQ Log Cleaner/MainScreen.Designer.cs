@@ -41,6 +41,17 @@
             this.L_Cant_Cast_While_Stunned_Count = new System.Windows.Forms.Label();
             this.L_Target_Too_Far_Away = new System.Windows.Forms.Label();
             this.L_Target_Too_Far_Away_Count = new System.Windows.Forms.Label();
+            this.B_Clean_Log = new System.Windows.Forms.Button();
+            this.L_Normal_Chat = new System.Windows.Forms.Label();
+            this.L_Normal_Cross_Tell = new System.Windows.Forms.Label();
+            this.L_Chat_Channel = new System.Windows.Forms.Label();
+            this.L_Tell_Window = new System.Windows.Forms.Label();
+            this.L_Normal_Chat_Count = new System.Windows.Forms.Label();
+            this.L_Normal_Cross_Tell_Count = new System.Windows.Forms.Label();
+            this.L_Chat_Channel_Count = new System.Windows.Forms.Label();
+            this.L_Tell_Window_Count = new System.Windows.Forms.Label();
+            this.L_Can_Use_Banestrike = new System.Windows.Forms.Label();
+            this.L_Can_Use_Banestrike_Count = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // B_Open_Log
@@ -56,7 +67,7 @@
             // L_Cant_Use_Command
             // 
             this.L_Cant_Use_Command.Location = new System.Drawing.Point(12, 82);
-            this.L_Cant_Use_Command.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Cant_Use_Command.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.L_Cant_Use_Command.Name = "L_Cant_Use_Command";
             this.L_Cant_Use_Command.Size = new System.Drawing.Size(130, 13);
             this.L_Cant_Use_Command.TabIndex = 1;
@@ -65,7 +76,7 @@
             // L_Havent_Recovered_Yet
             // 
             this.L_Havent_Recovered_Yet.Location = new System.Drawing.Point(12, 63);
-            this.L_Havent_Recovered_Yet.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Havent_Recovered_Yet.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.L_Havent_Recovered_Yet.Name = "L_Havent_Recovered_Yet";
             this.L_Havent_Recovered_Yet.Size = new System.Drawing.Size(130, 13);
             this.L_Havent_Recovered_Yet.TabIndex = 2;
@@ -74,7 +85,7 @@
             // L_Cant_Use_Command_Count
             // 
             this.L_Cant_Use_Command_Count.Location = new System.Drawing.Point(222, 82);
-            this.L_Cant_Use_Command_Count.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Cant_Use_Command_Count.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.L_Cant_Use_Command_Count.Name = "L_Cant_Use_Command_Count";
             this.L_Cant_Use_Command_Count.Size = new System.Drawing.Size(50, 13);
             this.L_Cant_Use_Command_Count.TabIndex = 3;
@@ -84,7 +95,7 @@
             // L_Havent_Recovered_Yet_Count
             // 
             this.L_Havent_Recovered_Yet_Count.Location = new System.Drawing.Point(222, 63);
-            this.L_Havent_Recovered_Yet_Count.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Havent_Recovered_Yet_Count.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.L_Havent_Recovered_Yet_Count.Name = "L_Havent_Recovered_Yet_Count";
             this.L_Havent_Recovered_Yet_Count.Size = new System.Drawing.Size(50, 13);
             this.L_Havent_Recovered_Yet_Count.TabIndex = 4;
@@ -94,7 +105,7 @@
             // L_First_Select_Target
             // 
             this.L_First_Select_Target.Location = new System.Drawing.Point(12, 101);
-            this.L_First_Select_Target.Margin = new System.Windows.Forms.Padding(3);
+            this.L_First_Select_Target.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.L_First_Select_Target.Name = "L_First_Select_Target";
             this.L_First_Select_Target.Size = new System.Drawing.Size(130, 13);
             this.L_First_Select_Target.TabIndex = 5;
@@ -103,7 +114,7 @@
             // L_Cannot_See_Target
             // 
             this.L_Cannot_See_Target.Location = new System.Drawing.Point(12, 120);
-            this.L_Cannot_See_Target.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Cannot_See_Target.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.L_Cannot_See_Target.Name = "L_Cannot_See_Target";
             this.L_Cannot_See_Target.Size = new System.Drawing.Size(130, 13);
             this.L_Cannot_See_Target.TabIndex = 6;
@@ -112,7 +123,7 @@
             // L_Cant_Cast_While_Stunned
             // 
             this.L_Cant_Cast_While_Stunned.Location = new System.Drawing.Point(12, 139);
-            this.L_Cant_Cast_While_Stunned.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Cant_Cast_While_Stunned.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.L_Cant_Cast_While_Stunned.Name = "L_Cant_Cast_While_Stunned";
             this.L_Cant_Cast_While_Stunned.Size = new System.Drawing.Size(130, 13);
             this.L_Cant_Cast_While_Stunned.TabIndex = 7;
@@ -121,7 +132,7 @@
             // L_First_Select_Target_Count
             // 
             this.L_First_Select_Target_Count.Location = new System.Drawing.Point(222, 101);
-            this.L_First_Select_Target_Count.Margin = new System.Windows.Forms.Padding(3);
+            this.L_First_Select_Target_Count.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.L_First_Select_Target_Count.Name = "L_First_Select_Target_Count";
             this.L_First_Select_Target_Count.Size = new System.Drawing.Size(50, 13);
             this.L_First_Select_Target_Count.TabIndex = 8;
@@ -131,7 +142,7 @@
             // L_Cannot_See_Target_Count
             // 
             this.L_Cannot_See_Target_Count.Location = new System.Drawing.Point(222, 120);
-            this.L_Cannot_See_Target_Count.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Cannot_See_Target_Count.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.L_Cannot_See_Target_Count.Name = "L_Cannot_See_Target_Count";
             this.L_Cannot_See_Target_Count.Size = new System.Drawing.Size(50, 13);
             this.L_Cannot_See_Target_Count.TabIndex = 9;
@@ -141,7 +152,7 @@
             // L_Cant_Cast_While_Stunned_Count
             // 
             this.L_Cant_Cast_While_Stunned_Count.Location = new System.Drawing.Point(222, 139);
-            this.L_Cant_Cast_While_Stunned_Count.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Cant_Cast_While_Stunned_Count.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.L_Cant_Cast_While_Stunned_Count.Name = "L_Cant_Cast_While_Stunned_Count";
             this.L_Cant_Cast_While_Stunned_Count.Size = new System.Drawing.Size(50, 13);
             this.L_Cant_Cast_While_Stunned_Count.TabIndex = 10;
@@ -151,7 +162,7 @@
             // L_Target_Too_Far_Away
             // 
             this.L_Target_Too_Far_Away.Location = new System.Drawing.Point(12, 158);
-            this.L_Target_Too_Far_Away.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Target_Too_Far_Away.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.L_Target_Too_Far_Away.Name = "L_Target_Too_Far_Away";
             this.L_Target_Too_Far_Away.Size = new System.Drawing.Size(130, 13);
             this.L_Target_Too_Far_Away.TabIndex = 11;
@@ -160,18 +171,134 @@
             // L_Target_Too_Far_Away_Count
             // 
             this.L_Target_Too_Far_Away_Count.Location = new System.Drawing.Point(222, 158);
-            this.L_Target_Too_Far_Away_Count.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Target_Too_Far_Away_Count.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.L_Target_Too_Far_Away_Count.Name = "L_Target_Too_Far_Away_Count";
             this.L_Target_Too_Far_Away_Count.Size = new System.Drawing.Size(50, 13);
             this.L_Target_Too_Far_Away_Count.TabIndex = 12;
             this.L_Target_Too_Far_Away_Count.Text = "0";
             this.L_Target_Too_Far_Away_Count.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // B_Clean_Log
+            // 
+            this.B_Clean_Log.Location = new System.Drawing.Point(12, 491);
+            this.B_Clean_Log.Name = "B_Clean_Log";
+            this.B_Clean_Log.Size = new System.Drawing.Size(75, 23);
+            this.B_Clean_Log.TabIndex = 13;
+            this.B_Clean_Log.Text = "Clean Log";
+            this.B_Clean_Log.UseVisualStyleBackColor = true;
+            this.B_Clean_Log.Click += new System.EventHandler(this.B_Clean_Log_Click);
+            // 
+            // L_Normal_Chat
+            // 
+            this.L_Normal_Chat.Location = new System.Drawing.Point(12, 216);
+            this.L_Normal_Chat.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Normal_Chat.Name = "L_Normal_Chat";
+            this.L_Normal_Chat.Size = new System.Drawing.Size(130, 13);
+            this.L_Normal_Chat.TabIndex = 14;
+            this.L_Normal_Chat.Text = "Normal Chat";
+            // 
+            // L_Normal_Cross_Tell
+            // 
+            this.L_Normal_Cross_Tell.Location = new System.Drawing.Point(12, 235);
+            this.L_Normal_Cross_Tell.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Normal_Cross_Tell.Name = "L_Normal_Cross_Tell";
+            this.L_Normal_Cross_Tell.Size = new System.Drawing.Size(130, 13);
+            this.L_Normal_Cross_Tell.TabIndex = 15;
+            this.L_Normal_Cross_Tell.Text = "Normal/X-Server Tell";
+            // 
+            // L_Chat_Channel
+            // 
+            this.L_Chat_Channel.Location = new System.Drawing.Point(12, 254);
+            this.L_Chat_Channel.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Chat_Channel.Name = "L_Chat_Channel";
+            this.L_Chat_Channel.Size = new System.Drawing.Size(130, 13);
+            this.L_Chat_Channel.TabIndex = 16;
+            this.L_Chat_Channel.Text = "Chat Channel";
+            // 
+            // L_Tell_Window
+            // 
+            this.L_Tell_Window.Location = new System.Drawing.Point(12, 273);
+            this.L_Tell_Window.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Tell_Window.Name = "L_Tell_Window";
+            this.L_Tell_Window.Size = new System.Drawing.Size(130, 13);
+            this.L_Tell_Window.TabIndex = 17;
+            this.L_Tell_Window.Text = "Tell Window";
+            // 
+            // L_Normal_Chat_Count
+            // 
+            this.L_Normal_Chat_Count.Location = new System.Drawing.Point(222, 216);
+            this.L_Normal_Chat_Count.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Normal_Chat_Count.Name = "L_Normal_Chat_Count";
+            this.L_Normal_Chat_Count.Size = new System.Drawing.Size(50, 13);
+            this.L_Normal_Chat_Count.TabIndex = 18;
+            this.L_Normal_Chat_Count.Text = "0";
+            this.L_Normal_Chat_Count.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // L_Normal_Cross_Tell_Count
+            // 
+            this.L_Normal_Cross_Tell_Count.Location = new System.Drawing.Point(222, 235);
+            this.L_Normal_Cross_Tell_Count.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Normal_Cross_Tell_Count.Name = "L_Normal_Cross_Tell_Count";
+            this.L_Normal_Cross_Tell_Count.Size = new System.Drawing.Size(50, 13);
+            this.L_Normal_Cross_Tell_Count.TabIndex = 19;
+            this.L_Normal_Cross_Tell_Count.Text = "0";
+            this.L_Normal_Cross_Tell_Count.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // L_Chat_Channel_Count
+            // 
+            this.L_Chat_Channel_Count.Location = new System.Drawing.Point(222, 254);
+            this.L_Chat_Channel_Count.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Chat_Channel_Count.Name = "L_Chat_Channel_Count";
+            this.L_Chat_Channel_Count.Size = new System.Drawing.Size(50, 13);
+            this.L_Chat_Channel_Count.TabIndex = 20;
+            this.L_Chat_Channel_Count.Text = "0";
+            this.L_Chat_Channel_Count.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // L_Tell_Window_Count
+            // 
+            this.L_Tell_Window_Count.Location = new System.Drawing.Point(222, 273);
+            this.L_Tell_Window_Count.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Tell_Window_Count.Name = "L_Tell_Window_Count";
+            this.L_Tell_Window_Count.Size = new System.Drawing.Size(50, 13);
+            this.L_Tell_Window_Count.TabIndex = 21;
+            this.L_Tell_Window_Count.Text = "0";
+            this.L_Tell_Window_Count.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // L_Can_Use_Banestrike
+            // 
+            this.L_Can_Use_Banestrike.Location = new System.Drawing.Point(12, 177);
+            this.L_Can_Use_Banestrike.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Can_Use_Banestrike.Name = "L_Can_Use_Banestrike";
+            this.L_Can_Use_Banestrike.Size = new System.Drawing.Size(130, 13);
+            this.L_Can_Use_Banestrike.TabIndex = 22;
+            this.L_Can_Use_Banestrike.Text = "Can Use Banestrike";
+            // 
+            // L_Can_Use_Banestrike_Count
+            // 
+            this.L_Can_Use_Banestrike_Count.Location = new System.Drawing.Point(222, 177);
+            this.L_Can_Use_Banestrike_Count.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Can_Use_Banestrike_Count.Name = "L_Can_Use_Banestrike_Count";
+            this.L_Can_Use_Banestrike_Count.Size = new System.Drawing.Size(50, 13);
+            this.L_Can_Use_Banestrike_Count.TabIndex = 23;
+            this.L_Can_Use_Banestrike_Count.Text = "0";
+            this.L_Can_Use_Banestrike_Count.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 526);
+            this.Controls.Add(this.L_Can_Use_Banestrike_Count);
+            this.Controls.Add(this.L_Can_Use_Banestrike);
+            this.Controls.Add(this.L_Tell_Window_Count);
+            this.Controls.Add(this.L_Chat_Channel_Count);
+            this.Controls.Add(this.L_Normal_Cross_Tell_Count);
+            this.Controls.Add(this.L_Normal_Chat_Count);
+            this.Controls.Add(this.L_Tell_Window);
+            this.Controls.Add(this.L_Chat_Channel);
+            this.Controls.Add(this.L_Normal_Cross_Tell);
+            this.Controls.Add(this.L_Normal_Chat);
+            this.Controls.Add(this.B_Clean_Log);
             this.Controls.Add(this.L_Target_Too_Far_Away_Count);
             this.Controls.Add(this.L_Target_Too_Far_Away);
             this.Controls.Add(this.L_Cant_Cast_While_Stunned_Count);
@@ -206,6 +333,17 @@
         private System.Windows.Forms.Label L_Cant_Cast_While_Stunned_Count;
         private System.Windows.Forms.Label L_Target_Too_Far_Away;
         private System.Windows.Forms.Label L_Target_Too_Far_Away_Count;
+        private System.Windows.Forms.Button B_Clean_Log;
+        private System.Windows.Forms.Label L_Normal_Chat;
+        private System.Windows.Forms.Label L_Normal_Cross_Tell;
+        private System.Windows.Forms.Label L_Chat_Channel;
+        private System.Windows.Forms.Label L_Tell_Window;
+        private System.Windows.Forms.Label L_Normal_Chat_Count;
+        private System.Windows.Forms.Label L_Normal_Cross_Tell_Count;
+        private System.Windows.Forms.Label L_Chat_Channel_Count;
+        private System.Windows.Forms.Label L_Tell_Window_Count;
+        private System.Windows.Forms.Label L_Can_Use_Banestrike;
+        private System.Windows.Forms.Label L_Can_Use_Banestrike_Count;
     }
 }
 

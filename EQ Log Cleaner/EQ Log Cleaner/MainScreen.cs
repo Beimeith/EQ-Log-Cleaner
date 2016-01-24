@@ -154,9 +154,7 @@ namespace EQ_Log_Cleaner
                 //Set the filename to the temporary files' name.
                 FileName = fn;
             }
-
             ParseFile();
-
         }
 
         private void ParseFile()
@@ -264,7 +262,8 @@ namespace EQ_Log_Cleaner
                 if (MyMatch.Groups.Count == 4)
                 {
                     NormalChatCount = NormalChatCount + 1;
-                    AddLine = false;
+                    if (Options.RemoveNormalChat)
+                        AddLine = false;
                 }
                 else
                 {
@@ -274,7 +273,8 @@ namespace EQ_Log_Cleaner
                     if (MyMatch.Groups.Count == 4)
                     {
                         NormalCrossTellCount = NormalCrossTellCount + 1;
-                        AddLine = false;
+                        if (Options.RemoveNormalTells)
+                            AddLine = false;
                     }
                     else
                     {
@@ -284,7 +284,8 @@ namespace EQ_Log_Cleaner
                         if (MyMatch.Groups.Count == 4)
                         {
                             ChatChannelCount = ChatChannelCount + 1;
-                            AddLine = false;
+                            if (Options.RemoveChatChannels)
+                                AddLine = false;
                         }
                     }
                 }
@@ -298,7 +299,8 @@ namespace EQ_Log_Cleaner
                 if (MyMatch.Groups.Count == 4)
                 {
                     TellWindowCount = TellWindowCount + 1;
-                    AddLine = false;
+                    if (Options.RemoveTellWindows)
+                        AddLine = false;
                 }
             }
         }
@@ -366,27 +368,43 @@ namespace EQ_Log_Cleaner
                 //And the Reader
                 using (StreamReader sr = new StreamReader(FileName, Encoding.UTF7))
                 {
-                    //Read the first line
+                    //Read the first line. Has to be done outside the loop or else the loop will start as null.
                     Line = sr.ReadLine();
                     //Start the parse loop until all lines are read
                     do
                     {
+                        //Reset AddLine to true for the next loop
+                        AddLine = true;
+                        
+
+                        //Parse General 
                         ParseGeneral(Line);
 
-                        if (Line.EndsWith("'") || Line.Contains("->"))
-                            ParseChat(Line);
+                        if (Options.ParseChat)
+                            if (Line.EndsWith("'") || Line.Contains("->"))
+                                ParseChat(Line);
 
-                        ParseWizard(Line);
+                        if (Options.ParseWizard)
+                            ParseWizard(Line);
 
+                        //If AddLine is still true, write the line
                         if (AddLine)
                             sw.WriteLine(Line);
 
-                        AddLine = true;
+                        //Read the next line
                         Line = sr.ReadLine();
+
                     } while (Line != null) ;
                 }
             }
             MessageBox.Show("Complete");
+        }
+
+        private void TSMI_Settings_Click(object sender, EventArgs e)
+        {
+            Settings Settings = new Settings();
+
+            Settings.ShowDialog(this);
         }
     }
 }

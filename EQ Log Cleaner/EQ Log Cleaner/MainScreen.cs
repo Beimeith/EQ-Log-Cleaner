@@ -23,14 +23,17 @@ namespace EQ_Log_Cleaner
 
         string Player;
 
-        //Holds the real filename. Used for when opening a Gzipped file to hold the
+        //Holds the real filename. Used for when opening a Gzipped file to hold the real name not the temp file name.
         string OriginalFileName = "";
+        //Holds the filename of the opened file. If the file was zipped, this will be the unzipped temporary file.
         string FileName = "";
         TempFileCollection TempFiles = new TempFileCollection();
 
-        List<string> Lines = new List<string>();
+        //Current line that has been read.
         string Line;
+        //Boolean whether the current line will be added to the Lines List for writeback later.
         bool AddLine = true;
+
 
         //Built in chat channels
         Regex ChatRegex1 = new Regex("^\\[.{24}\\] (?<1>\\w+) (?<2>say to your guild, '|tells the guild, '|tells the guild, in .+, '|tell your party, '|tells the group, '|tells the group, in .+, '|tell your raid, '|tells the raid,  '|tells the raid,  in .+, '|say out of character, '|says out of character, '|shout, '|shouts, '|shouts, in .+, '|auction, '|auctions, '|auctions, in .+, '|say, '|says, '|says, in .+, '|say to your fellowship, '|tells the fellowship, '|tells the fellowship, in .+, ')(?<3>.+)'$", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
@@ -42,6 +45,27 @@ namespace EQ_Log_Cleaner
         Regex ChatRegex4 = new Regex("^\\[.{24}\\] (?<1>\\w+) -> (?<2>\\w+): (?<3>.+)$", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
 
         Match MyMatch;
+
+        //General Count Variables
+        int HaventRecoveredYet;
+        int CantUseCommand;
+        int FirstSelectTarget;
+        int CannotSeeTarget;
+        int CantCastWhileStunned;
+        int TargetTooFarAway;
+        int CanUseBanestrike;
+
+        //Wizard Count Variables
+        int CanUseForceWill;
+        int CanUseForceFlames;
+        int CanUseForceIce;
+        int CanUseLowerElement;
+
+        //Chat Count Variables
+        int NormalChatCount;
+        int NormalCrossTellCount;
+        int ChatChannelCount;
+        int TellWindowCount;
 
         #endregion
 
@@ -59,7 +83,6 @@ namespace EQ_Log_Cleaner
             //Set the default directory based on what is stored in the options and Filter the files displayed to show text files and gzip files
             OpenFileDialog1.InitialDirectory = Options.DefaultPath;
             OpenFileDialog1.Filter = "EQ Log Files|*.txt;*.txt.gz";
-            
 
             if (OpenFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -132,40 +155,35 @@ namespace EQ_Log_Cleaner
                 FileName = fn;
             }
 
-            
+            ParseFile();
+
+        }
+
+        private void ParseFile()
+        {
+            ClearCount();
 
             //Create the streamreader and read the first two lines because the first line is headings.
             using (StreamReader sr = new StreamReader(FileName, Encoding.UTF7))
             {
                 Line = sr.ReadLine();
-                if (Line != null)
-                    Lines.Add(Line);
-
-                AddLine = true;
 
                 do
                 {
-
                     ParseGeneral(Line);
 
-
                     if (Line.EndsWith("'") || Line.Contains("->"))
-                    {
                         ParseChat(Line);
-                    }
 
                     ParseWizard(Line);
 
-                    if (AddLine)
-                        Lines.Add(Line);
-
                     Line = sr.ReadLine();
-                    AddLine = true;
 
                 } while (Line != null);
+
+                //Update the Count Labels
+                UpdateCount();
             }
-
-
         }
 
         private void ParseGeneral(string Line)
@@ -173,76 +191,63 @@ namespace EQ_Log_Cleaner
 
             if (Line.Contains("You haven't recovered yet..."))
             {
-                int HaventRecoveredYet = Convert.ToInt32(L_Havent_Recovered_Yet_Count.Text);
                 HaventRecoveredYet = HaventRecoveredYet + 1;
-                L_Havent_Recovered_Yet_Count.Text = HaventRecoveredYet.ToString();
                 AddLine = false;
             }
             else if (Line.Contains("You can't use that command right now..."))
             {
-                int CantUseCommand = Convert.ToInt32(L_Cant_Use_Command_Count.Text);
                 CantUseCommand = CantUseCommand + 1;
-                L_Cant_Use_Command_Count.Text = CantUseCommand.ToString();
                 AddLine = false;
             }
             else if (Line.Contains("You must first select a target for this spell!"))
             {
-                int FirstSelectTarget = Convert.ToInt32(L_First_Select_Target_Count.Text);
                 FirstSelectTarget = FirstSelectTarget + 1;
-                L_First_Select_Target_Count.Text = FirstSelectTarget.ToString();
                 AddLine = false;
             }
             else if (Line.Contains("You cannot see your target."))
             {
-                int CannotSeeTarget = Convert.ToInt32(L_Cannot_See_Target_Count.Text);
-                L_Cannot_See_Target_Count.Text = CannotSeeTarget.ToString();
                 CannotSeeTarget = CannotSeeTarget + 1;
                 AddLine = false;
             }
             else if (Line.Contains("You can't cast spells while stunned!"))
             {
-                int CantCastWhileStunned = Convert.ToInt32(L_Cant_Cast_While_Stunned_Count.Text);
                 CantCastWhileStunned = CantCastWhileStunned + 1;
-                L_Cant_Cast_While_Stunned_Count.Text = CantCastWhileStunned.ToString();
                 AddLine = false;
             }
             else if (Line.Contains("Your target is too far away, get closer!"))
             {
-                int TargetTooFarAway = Convert.ToInt32(L_Target_Too_Far_Away_Count.Text);
                 TargetTooFarAway = TargetTooFarAway + 1;
-                L_Target_Too_Far_Away_Count.Text = TargetTooFarAway.ToString();
                 AddLine = false;
             }
             else if (Line.Contains("You can use the ability Banestrike again in"))
             {
-                int CanUseBanestrike = Convert.ToInt32(L_Can_Use_Banestrike_Count.Text);
                 CanUseBanestrike = CanUseBanestrike + 1;
-                L_Can_Use_Banestrike_Count.Text = CanUseBanestrike.ToString();
                 AddLine = false;
             }
-
-            
 
         }
 
         private void ParseWizard(string Line)
         {
-          
 
             if (Line.Contains("You can use the ability Force of Will again in"))
             {
+                CanUseForceWill = CanUseForceWill + 1;
                 AddLine = false;
             }
             else if (Line.Contains("You can use the ability Force of Flame again in"))
             {
+                CanUseForceFlames = CanUseForceFlames + 1;
                 AddLine = false;
             }
             else if (Line.Contains("You can use the ability Force of Ice again in"))
             {
+                CanUseForceIce = CanUseForceIce + 1;
                 AddLine = false;
             }
             else if (Line.Contains("You can use the ability Lower Element again in"))
             {
+                CanUseLowerElement = CanUseLowerElement + 1;
                 AddLine = false;
             }
 
@@ -258,9 +263,7 @@ namespace EQ_Log_Cleaner
 
                 if (MyMatch.Groups.Count == 4)
                 {
-                    int NormalChatCount = Convert.ToInt32(L_Normal_Chat_Count.Text);
                     NormalChatCount = NormalChatCount + 1;
-                    L_Normal_Chat_Count.Text = NormalChatCount.ToString();
                     AddLine = false;
                 }
                 else
@@ -270,9 +273,7 @@ namespace EQ_Log_Cleaner
 
                     if (MyMatch.Groups.Count == 4)
                     {
-                        int NormalCrossTellCount = Convert.ToInt32(L_Normal_Cross_Tell_Count.Text);
                         NormalCrossTellCount = NormalCrossTellCount + 1;
-                        L_Normal_Cross_Tell_Count.Text = NormalCrossTellCount.ToString();
                         AddLine = false;
                     }
                     else
@@ -282,9 +283,7 @@ namespace EQ_Log_Cleaner
 
                         if (MyMatch.Groups.Count == 4)
                         {
-                            int ChatChannelCount = Convert.ToInt32(L_Chat_Channel_Count.Text);
                             ChatChannelCount = ChatChannelCount + 1;
-                            L_Chat_Channel_Count.Text = ChatChannelCount.ToString();
                             AddLine = false;
                         }
                     }
@@ -298,21 +297,95 @@ namespace EQ_Log_Cleaner
 
                 if (MyMatch.Groups.Count == 4)
                 {
-                    int TellWindowCount = Convert.ToInt32(L_Tell_Window_Count.Text);
                     TellWindowCount = TellWindowCount + 1;
-                    L_Tell_Window_Count.Text = TellWindowCount.ToString();
                     AddLine = false;
                 }
             }
         }
 
+        private void UpdateCount()
+        {
+            L_Havent_Recovered_Yet_Count.Text = HaventRecoveredYet.ToString();
+            L_Cant_Use_Command_Count.Text = CantUseCommand.ToString();
+            L_First_Select_Target_Count.Text = FirstSelectTarget.ToString();
+            L_Cannot_See_Target_Count.Text = CannotSeeTarget.ToString();
+            L_Cant_Cast_While_Stunned_Count.Text = CantCastWhileStunned.ToString();
+            L_Target_Too_Far_Away_Count.Text = TargetTooFarAway.ToString();
+            L_Can_Use_Banestrike_Count.Text = CanUseBanestrike.ToString();
+
+            L_Normal_Chat_Count.Text = NormalChatCount.ToString();
+            L_Normal_Cross_Tell_Count.Text = NormalCrossTellCount.ToString();
+            L_Chat_Channel_Count.Text = ChatChannelCount.ToString();
+            L_Tell_Window_Count.Text = TellWindowCount.ToString();
+        }
+
+        private void ClearCount()
+        {
+            HaventRecoveredYet = 0;
+            CantUseCommand = 0;
+            FirstSelectTarget = 0;
+            CannotSeeTarget = 0;
+            CantCastWhileStunned = 0;
+            TargetTooFarAway = 0;
+            CanUseBanestrike = 0;
+
+            CanUseForceWill = 0;
+            CanUseForceFlames = 0;
+            CanUseForceIce = 0;
+            CanUseLowerElement = 0;
+
+            NormalChatCount = 0;
+            NormalCrossTellCount = 0;
+            ChatChannelCount = 0;
+            TellWindowCount = 0;
+
+            L_Havent_Recovered_Yet_Count.Text = "0";
+            L_Cant_Use_Command_Count.Text = "0";
+            L_First_Select_Target_Count.Text = "0";
+            L_Cannot_See_Target_Count.Text = "0";
+            L_Cant_Cast_While_Stunned_Count.Text = "0";
+            L_Target_Too_Far_Away_Count.Text = "0";
+            L_Can_Use_Banestrike_Count.Text = "0";
+
+            L_Normal_Chat_Count.Text = "0";
+            L_Normal_Cross_Tell_Count.Text = "0";
+            L_Chat_Channel_Count.Text = "0";
+            L_Tell_Window_Count.Text = "0";
+        }
 
         private void B_Clean_Log_Click(object sender, EventArgs e)
         {
-            FileName = FileName.Substring(0, FileName.Length - 4) + "-cleaned.txt";
+            //Put the filename for the cleaned file in a string
+            string NewFileName = FileName.Substring(0, FileName.Length - 4) + "-cleaned.txt";
+            //Reset AddLine to true
+            AddLine = true;
 
-            File.WriteAllLines(FileName, Lines);
-            Lines.Clear();
+            //Startup the Writer
+            using (StreamWriter sw = new StreamWriter(NewFileName))
+            {
+                //And the Reader
+                using (StreamReader sr = new StreamReader(FileName, Encoding.UTF7))
+                {
+                    //Read the first line
+                    Line = sr.ReadLine();
+                    //Start the parse loop until all lines are read
+                    do
+                    {
+                        ParseGeneral(Line);
+
+                        if (Line.EndsWith("'") || Line.Contains("->"))
+                            ParseChat(Line);
+
+                        ParseWizard(Line);
+
+                        if (AddLine)
+                            sw.WriteLine(Line);
+
+                        AddLine = true;
+                        Line = sr.ReadLine();
+                    } while (Line != null) ;
+                }
+            }
             MessageBox.Show("Complete");
         }
     }

@@ -50,8 +50,8 @@
             this.L_Normal_Cross_Tell_Count = new System.Windows.Forms.Label();
             this.L_Chat_Channel_Count = new System.Windows.Forms.Label();
             this.L_Tell_Window_Count = new System.Windows.Forms.Label();
-            this.L_Can_Use_Banestrike = new System.Windows.Forms.Label();
-            this.L_Can_Use_Banestrike_Count = new System.Windows.Forms.Label();
+            this.L_Can_Use_Ability = new System.Windows.Forms.Label();
+            this.L_Can_Use_Ability_Count = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.TSMI_Settings = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -87,7 +87,7 @@
             // 
             // L_Cant_Use_Command_Count
             // 
-            this.L_Cant_Use_Command_Count.Location = new System.Drawing.Point(222, 82);
+            this.L_Cant_Use_Command_Count.Location = new System.Drawing.Point(270, 82);
             this.L_Cant_Use_Command_Count.Margin = new System.Windows.Forms.Padding(3);
             this.L_Cant_Use_Command_Count.Name = "L_Cant_Use_Command_Count";
             this.L_Cant_Use_Command_Count.Size = new System.Drawing.Size(50, 13);
@@ -97,7 +97,7 @@
             // 
             // L_Havent_Recovered_Yet_Count
             // 
-            this.L_Havent_Recovered_Yet_Count.Location = new System.Drawing.Point(222, 63);
+            this.L_Havent_Recovered_Yet_Count.Location = new System.Drawing.Point(270, 63);
             this.L_Havent_Recovered_Yet_Count.Margin = new System.Windows.Forms.Padding(3);
             this.L_Havent_Recovered_Yet_Count.Name = "L_Havent_Recovered_Yet_Count";
             this.L_Havent_Recovered_Yet_Count.Size = new System.Drawing.Size(50, 13);
@@ -134,7 +134,7 @@
             // 
             // L_First_Select_Target_Count
             // 
-            this.L_First_Select_Target_Count.Location = new System.Drawing.Point(222, 101);
+            this.L_First_Select_Target_Count.Location = new System.Drawing.Point(270, 101);
             this.L_First_Select_Target_Count.Margin = new System.Windows.Forms.Padding(3);
             this.L_First_Select_Target_Count.Name = "L_First_Select_Target_Count";
             this.L_First_Select_Target_Count.Size = new System.Drawing.Size(50, 13);
@@ -144,7 +144,7 @@
             // 
             // L_Cannot_See_Target_Count
             // 
-            this.L_Cannot_See_Target_Count.Location = new System.Drawing.Point(222, 120);
+            this.L_Cannot_See_Target_Count.Location = new System.Drawing.Point(270, 120);
             this.L_Cannot_See_Target_Count.Margin = new System.Windows.Forms.Padding(3);
             this.L_Cannot_See_Target_Count.Name = "L_Cannot_See_Target_Count";
             this.L_Cannot_See_Target_Count.Size = new System.Drawing.Size(50, 13);
@@ -154,7 +154,7 @@
             // 
             // L_Cant_Cast_While_Stunned_Count
             // 
-            this.L_Cant_Cast_While_Stunned_Count.Location = new System.Drawing.Point(222, 139);
+            this.L_Cant_Cast_While_Stunned_Count.Location = new System.Drawing.Point(270, 139);
             this.L_Cant_Cast_While_Stunned_Count.Margin = new System.Windows.Forms.Padding(3);
             this.L_Cant_Cast_While_Stunned_Count.Name = "L_Cant_Cast_While_Stunned_Count";
             this.L_Cant_Cast_While_Stunned_Count.Size = new System.Drawing.Size(50, 13);
@@ -173,7 +173,7 @@
             // 
             // L_Target_Too_Far_Away_Count
             // 
-            this.L_Target_Too_Far_Away_Count.Location = new System.Drawing.Point(222, 158);
+            this.L_Target_Too_Far_Away_Count.Location = new System.Drawing.Point(270, 158);
             this.L_Target_Too_Far_Away_Count.Margin = new System.Windows.Forms.Padding(3);
             this.L_Target_Too_Far_Away_Count.Name = "L_Target_Too_Far_Away_Count";
             this.L_Target_Too_Far_Away_Count.Size = new System.Drawing.Size(50, 13);
@@ -183,7 +183,7 @@
             // 
             // B_Clean_Log
             // 
-            this.B_Clean_Log.Location = new System.Drawing.Point(197, 491);
+            this.B_Clean_Log.Location = new System.Drawing.Point(245, 491);
             this.B_Clean_Log.Name = "B_Clean_Log";
             this.B_Clean_Log.Size = new System.Drawing.Size(75, 23);
             this.B_Clean_Log.TabIndex = 13;
@@ -229,7 +229,7 @@
             // 
             // L_Normal_Chat_Count
             // 
-            this.L_Normal_Chat_Count.Location = new System.Drawing.Point(222, 216);
+            this.L_Normal_Chat_Count.Location = new System.Drawing.Point(270, 216);
             this.L_Normal_Chat_Count.Margin = new System.Windows.Forms.Padding(3);
             this.L_Normal_Chat_Count.Name = "L_Normal_Chat_Count";
             this.L_Normal_Chat_Count.Size = new System.Drawing.Size(50, 13);
@@ -239,7 +239,7 @@
             // 
             // L_Normal_Cross_Tell_Count
             // 
-            this.L_Normal_Cross_Tell_Count.Location = new System.Drawing.Point(222, 235);
+            this.L_Normal_Cross_Tell_Count.Location = new System.Drawing.Point(270, 235);
             this.L_Normal_Cross_Tell_Count.Margin = new System.Windows.Forms.Padding(3);
             this.L_Normal_Cross_Tell_Count.Name = "L_Normal_Cross_Tell_Count";
             this.L_Normal_Cross_Tell_Count.Size = new System.Drawing.Size(50, 13);
@@ -249,7 +249,7 @@
             // 
             // L_Chat_Channel_Count
             // 
-            this.L_Chat_Channel_Count.Location = new System.Drawing.Point(222, 254);
+            this.L_Chat_Channel_Count.Location = new System.Drawing.Point(270, 254);
             this.L_Chat_Channel_Count.Margin = new System.Windows.Forms.Padding(3);
             this.L_Chat_Channel_Count.Name = "L_Chat_Channel_Count";
             this.L_Chat_Channel_Count.Size = new System.Drawing.Size(50, 13);
@@ -259,7 +259,7 @@
             // 
             // L_Tell_Window_Count
             // 
-            this.L_Tell_Window_Count.Location = new System.Drawing.Point(222, 273);
+            this.L_Tell_Window_Count.Location = new System.Drawing.Point(270, 273);
             this.L_Tell_Window_Count.Margin = new System.Windows.Forms.Padding(3);
             this.L_Tell_Window_Count.Name = "L_Tell_Window_Count";
             this.L_Tell_Window_Count.Size = new System.Drawing.Size(50, 13);
@@ -267,24 +267,24 @@
             this.L_Tell_Window_Count.Text = "0";
             this.L_Tell_Window_Count.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // L_Can_Use_Banestrike
+            // L_Can_Use_Ability
             // 
-            this.L_Can_Use_Banestrike.Location = new System.Drawing.Point(12, 177);
-            this.L_Can_Use_Banestrike.Margin = new System.Windows.Forms.Padding(3);
-            this.L_Can_Use_Banestrike.Name = "L_Can_Use_Banestrike";
-            this.L_Can_Use_Banestrike.Size = new System.Drawing.Size(130, 13);
-            this.L_Can_Use_Banestrike.TabIndex = 22;
-            this.L_Can_Use_Banestrike.Text = "Can Use Banestrike";
+            this.L_Can_Use_Ability.Location = new System.Drawing.Point(12, 177);
+            this.L_Can_Use_Ability.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Can_Use_Ability.Name = "L_Can_Use_Ability";
+            this.L_Can_Use_Ability.Size = new System.Drawing.Size(130, 13);
+            this.L_Can_Use_Ability.TabIndex = 22;
+            this.L_Can_Use_Ability.Text = "Can Use Ability Again In";
             // 
-            // L_Can_Use_Banestrike_Count
+            // L_Can_Use_Ability_Count
             // 
-            this.L_Can_Use_Banestrike_Count.Location = new System.Drawing.Point(222, 177);
-            this.L_Can_Use_Banestrike_Count.Margin = new System.Windows.Forms.Padding(3);
-            this.L_Can_Use_Banestrike_Count.Name = "L_Can_Use_Banestrike_Count";
-            this.L_Can_Use_Banestrike_Count.Size = new System.Drawing.Size(50, 13);
-            this.L_Can_Use_Banestrike_Count.TabIndex = 23;
-            this.L_Can_Use_Banestrike_Count.Text = "0";
-            this.L_Can_Use_Banestrike_Count.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.L_Can_Use_Ability_Count.Location = new System.Drawing.Point(270, 177);
+            this.L_Can_Use_Ability_Count.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Can_Use_Ability_Count.Name = "L_Can_Use_Ability_Count";
+            this.L_Can_Use_Ability_Count.Size = new System.Drawing.Size(50, 13);
+            this.L_Can_Use_Ability_Count.TabIndex = 23;
+            this.L_Can_Use_Ability_Count.Text = "0";
+            this.L_Can_Use_Ability_Count.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // menuStrip1
             // 
@@ -292,7 +292,7 @@
             this.TSMI_Settings});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(284, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(332, 24);
             this.menuStrip1.TabIndex = 24;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -307,9 +307,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 526);
-            this.Controls.Add(this.L_Can_Use_Banestrike_Count);
-            this.Controls.Add(this.L_Can_Use_Banestrike);
+            this.ClientSize = new System.Drawing.Size(332, 526);
+            this.Controls.Add(this.L_Can_Use_Ability_Count);
+            this.Controls.Add(this.L_Can_Use_Ability);
             this.Controls.Add(this.L_Tell_Window_Count);
             this.Controls.Add(this.L_Chat_Channel_Count);
             this.Controls.Add(this.L_Normal_Cross_Tell_Count);
@@ -367,8 +367,8 @@
         private System.Windows.Forms.Label L_Normal_Cross_Tell_Count;
         private System.Windows.Forms.Label L_Chat_Channel_Count;
         private System.Windows.Forms.Label L_Tell_Window_Count;
-        private System.Windows.Forms.Label L_Can_Use_Banestrike;
-        private System.Windows.Forms.Label L_Can_Use_Banestrike_Count;
+        private System.Windows.Forms.Label L_Can_Use_Ability;
+        private System.Windows.Forms.Label L_Can_Use_Ability_Count;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem TSMI_Settings;
     }

@@ -18,7 +18,7 @@ namespace EQ_Log_Cleaner
     {
         #region --- Variables -----------------------------------------------------
 
-        string ProgramVersion = "0.0.2.0";
+        string ProgramVersion = "0.0.3.0";
         string Title = "EQ Log Cleaner";
 
         string Player;
@@ -41,11 +41,11 @@ namespace EQ_Log_Cleaner
 
         //Built in chat channels
         Regex ChatRegex1 = new Regex("^\\[.{24}\\] (?<1>\\w+) (?<2>say to your guild, '|tells the guild, '|tells the guild, in .+, '|tell your party, '|tells the group, '|tells the group, in .+, '|tell your raid, '|tells the raid,  '|tells the raid,  in .+, '|say out of character, '|says out of character, '|shout, '|shouts, '|shouts, in .+, '|auction, '|auctions, '|auctions, in .+, '|say, '|says, '|says, in .+, '|say to your fellowship, '|tells the fellowship, '|tells the fellowship, in .+, ')(?<3>.+)'$", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
-        //Normal tells / cross server tells
+        //Normal tells / cross server tells. -B
         Regex ChatRegex2 = new Regex("^\\[.{24}\\] (?<1>(\\w+|\\w+\\.\\w+)) (told|tells) (?<2>(\\w+|\\w+\\.\\w+))(, '|, in .+, '| '\\[queued\\], )(?<3>.+)'$", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
-        //Chat Channels
-        Regex ChatRegex3 = new Regex("^\\[.{24}\\] (?<1>(\\w+|\\w+\\.\\w+)) (tell|tells) (?<2>(\\w+|\\w+\\.\\w+)):\\d+, '(?<3>.+)'$", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
-        //Tells that use the Tell Window
+        //Chat Channels. -B
+        Regex ChatRegex3 = new Regex("^\\[.{24}\\] (?<1>(\\w+|\\w+\\.\\w+)) (tell|tells) (?<2>(.+|.+\\..+)):\\d+, '(?<3>.+)'$", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
+        //Tells that use the Tell Window. -B
         Regex ChatRegex4 = new Regex("^\\[.{24}\\] (?<1>\\w+) -> (?<2>\\w+): (?<3>.+)$", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
 
         Match MyMatch;
@@ -127,6 +127,10 @@ namespace EQ_Log_Cleaner
 
         private void LoadFile(string file)
         {
+            L_Path.Text = Path.GetDirectoryName(FileName);
+
+            L_FileName.Text = Path.GetFileName(FileName);
+
             //Delete old temp files to prevent eating up space on the system.
             TempFiles.Delete();
             //Places the filename into a new string that doesn't change so that it can be referenced later, even if the filename itself changes.
@@ -442,7 +446,9 @@ namespace EQ_Log_Cleaner
                     log.Close();
                     write.Close();
                 }
-                File.Delete(OriginalFileName);
+                if (Options.DeleteOriginalAfterCleaning)
+                    File.Delete(OriginalFileName);
+
                 MessageBox.Show("Cleaning Complete");
             }
             catch (Exception error)

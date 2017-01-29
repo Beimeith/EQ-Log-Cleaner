@@ -358,7 +358,7 @@
             // 
             // B_Close
             // 
-            this.B_Close.Location = new System.Drawing.Point(97, 345);
+            this.B_Close.Location = new System.Drawing.Point(140, 375);
             this.B_Close.Name = "B_Close";
             this.B_Close.Size = new System.Drawing.Size(75, 23);
             this.B_Close.TabIndex = 2;
@@ -373,6 +373,7 @@
             this.ClientSize = new System.Drawing.Size(378, 410);
             this.Controls.Add(this.B_Close);
             this.Controls.Add(this.TC_Main);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Settings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";

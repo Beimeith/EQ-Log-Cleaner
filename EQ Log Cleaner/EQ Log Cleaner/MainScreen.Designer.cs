@@ -54,6 +54,10 @@
             this.L_Can_Use_Ability_Count = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.TSMI_Settings = new System.Windows.Forms.ToolStripMenuItem();
+            this.L_FileName = new System.Windows.Forms.Label();
+            this.L_Path = new System.Windows.Forms.Label();
+            this.L_CF = new System.Windows.Forms.Label();
+            this.L_CD = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -303,11 +307,51 @@
             this.TSMI_Settings.Text = "&Settings";
             this.TSMI_Settings.Click += new System.EventHandler(this.TSMI_Settings_Click);
             // 
+            // L_FileName
+            // 
+            this.L_FileName.Location = new System.Drawing.Point(66, 456);
+            this.L_FileName.Margin = new System.Windows.Forms.Padding(3);
+            this.L_FileName.Name = "L_FileName";
+            this.L_FileName.Size = new System.Drawing.Size(254, 13);
+            this.L_FileName.TabIndex = 26;
+            this.L_FileName.Text = "None Loaded";
+            // 
+            // L_Path
+            // 
+            this.L_Path.Location = new System.Drawing.Point(66, 437);
+            this.L_Path.Margin = new System.Windows.Forms.Padding(3);
+            this.L_Path.Name = "L_Path";
+            this.L_Path.Size = new System.Drawing.Size(254, 13);
+            this.L_Path.TabIndex = 25;
+            this.L_Path.Text = "None Loaded";
+            // 
+            // L_CF
+            // 
+            this.L_CF.Location = new System.Drawing.Point(12, 456);
+            this.L_CF.Margin = new System.Windows.Forms.Padding(3);
+            this.L_CF.Name = "L_CF";
+            this.L_CF.Size = new System.Drawing.Size(40, 13);
+            this.L_CF.TabIndex = 27;
+            this.L_CF.Text = "File:";
+            // 
+            // L_CD
+            // 
+            this.L_CD.Location = new System.Drawing.Point(12, 437);
+            this.L_CD.Margin = new System.Windows.Forms.Padding(3);
+            this.L_CD.Name = "L_CD";
+            this.L_CD.Size = new System.Drawing.Size(56, 13);
+            this.L_CD.TabIndex = 28;
+            this.L_CD.Text = "Directory:";
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(332, 526);
+            this.Controls.Add(this.L_CD);
+            this.Controls.Add(this.L_CF);
+            this.Controls.Add(this.L_FileName);
+            this.Controls.Add(this.L_Path);
             this.Controls.Add(this.L_Can_Use_Ability_Count);
             this.Controls.Add(this.L_Can_Use_Ability);
             this.Controls.Add(this.L_Tell_Window_Count);
@@ -333,6 +377,7 @@
             this.Controls.Add(this.L_Cant_Use_Command);
             this.Controls.Add(this.B_Open_Log);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainScreen";
             this.Text = "EQ Log Cleaner";
@@ -371,6 +416,10 @@
         private System.Windows.Forms.Label L_Can_Use_Ability_Count;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem TSMI_Settings;
+        private System.Windows.Forms.Label L_FileName;
+        private System.Windows.Forms.Label L_Path;
+        private System.Windows.Forms.Label L_CF;
+        private System.Windows.Forms.Label L_CD;
     }
 }
 

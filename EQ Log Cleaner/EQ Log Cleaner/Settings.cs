@@ -19,6 +19,8 @@ namespace EQ_Log_Cleaner
         
         private void Settings_Load(object sender, EventArgs e)
         {
+            TC_Main.TabPages.Remove(TP_Class);
+            
             //Set General Checkboxes
 
             CB_Compress_After_Cleaning.Checked = Options.CompressAfterCleaning;
